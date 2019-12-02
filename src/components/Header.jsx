@@ -4,6 +4,7 @@ const Header = () => {
   function handleClick() {
     console.log("button clicked");
   }
+
   return (
     <div id="header">
       <select name="selector" id="symbol-selector">
