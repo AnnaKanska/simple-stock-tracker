@@ -1,26 +1,49 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-const Header = () => {
+// const {
+//   price,
+//   quantity,
+//   currency
+// } = {
+//   quantity: 5,
+//   currency: "EUR",
+//   price: 32.12
+// }
+
+// const [
+//   quantitylkmlgkareglk,
+//   currency,
+//   price
+// ] = [5, "EUR", 32.12];
+
+const Header = props => {
+  const { onStockSelected } = props;
   const [selected, setSelected] = useState("AAPL");
 
-  console.log(selected);
+  useEffect(() => {
+    console.log("effect", selected);
+
+    return () => {
+      console.log("cleanup", selected);
+    };
+  }, [selected]);
 
   function handleChange(e) {
     setSelected(e.target.value);
   }
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(selected);
+    onStockSelected(selected);
   }
 
   return (
     <>
       <form id="header" onSubmit={handleSubmit}>
         <select value={selected} onChange={handleChange} id="symbol-selector">
-          <option value="AAPL">AAPL</option>
-          <option value="AMZN">AMZN</option>
-          <option value="ECOR">ECOR</option>
-          <option value="GOOGL">GOOGL</option>
+          <option value="AAPL">Apple</option>
+          <option value="AMZN">Amazon</option>
+          <option value="ECOR">Electro@%^</option>
+          <option value="GOOGL">Google</option>
         </select>
         <button type="submit">ok</button>
       </form>

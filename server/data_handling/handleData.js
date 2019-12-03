@@ -25,7 +25,7 @@ const HANDLE_DATA = socket => {
       Object.values(intervals).forEach(clearInterval);
       return;
     }
-    console.info("Stock Symbol Entered: " + stockSymbol);
+    console.log("Stock Symbol Entered: " + stockSymbol);
     Object.values(intervals).forEach(clearInterval);
     intervals.stock = callNowAndInterval(
       getStockDataAndEmit,
