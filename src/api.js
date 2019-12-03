@@ -27,4 +27,15 @@ function subscribeToStockData(symbol, cb) {
   };
 }
 
-export { subscribeToOverview, subscribeToStockData };
+function subscribeToChartData(symbol, cb) {
+  socket.emit("symbol", symbol, "1Y");
+  const handleResponse = response => cb(response.data);
+  socket.on("ChartData", handleResponse);
+  return {
+    unsubscribe: () => {
+      socket.off("ChartData", handleResponse);
+    }
+  };
+}
+
+export { subscribeToOverview, subscribeToStockData, subscribeToChartData };

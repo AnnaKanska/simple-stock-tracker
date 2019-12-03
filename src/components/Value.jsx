@@ -1,7 +1,6 @@
 import React from "react";
 
 const Value = ({ data }) => {
-  console.log(data);
   const valueDisplay = data ? <div>{data.latestPrice}</div> : <p>no data</p>;
   return (
     <div>

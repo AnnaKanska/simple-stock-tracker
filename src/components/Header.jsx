@@ -21,10 +21,10 @@ const Header = props => {
   const [selected, setSelected] = useState("AAPL");
 
   useEffect(() => {
-    console.log("effect", selected);
+    // console.log("effect", selected);
 
     return () => {
-      console.log("cleanup", selected);
+      // console.log("cleanup", selected);
     };
   }, [selected]);
 
